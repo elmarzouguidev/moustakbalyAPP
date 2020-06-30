@@ -92,7 +92,7 @@
                       <td class="text-right">
                    
                         <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                          <i class="fa fa-edit"></i>
+                          <i class="fa fa-phone"></i>
                         </button>
                   
                       </td>

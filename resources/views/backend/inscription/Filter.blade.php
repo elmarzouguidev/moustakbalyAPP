@@ -40,14 +40,14 @@
                             <input type="text" name="filter[sexe]" class="form-control" >
                           </div>
                         </div>
-                        <div class="card-footer ">
-                            <button type="submit" class="btn btn-info btn-round">filter</button>
-                        <a href="{{route('admin.inscriptions')}}" class="btn btn-info btn-round">Reset Filter</a>
-                          </div>
+                     
                       </div>
                    
                     </div>
-                 
+                    <div class="card-footer ">
+                        <button type="submit" class="btn btn-info btn-round">filter</button>
+                         <a href="{{route('admin.inscriptions')}}" class="btn btn-info btn-round">Reset Filter</a>
+                      </div>
                   </div>
                 </form>
               </div>
