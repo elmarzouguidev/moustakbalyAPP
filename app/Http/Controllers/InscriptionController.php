@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InscriptionExport;
 use Illuminate\Http\Request;
 
 use App\Inscription;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
 
@@ -31,5 +33,10 @@ class InscriptionController extends Controller
             ->get();
 
         return view('backend.inscription.index', compact('customers'));
+    }
+
+    public function export() 
+    {
+        return Excel::download(new InscriptionExport, 'users.xlsx');
     }
 }

@@ -21,6 +21,7 @@ Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
     Route::get('/',['uses'=>'DashController@index','as'=>'admin.dash']);
 
     Route::get('/inscriptions',['uses'=>'InscriptionController@index','as'=>'admin.inscriptions']);
+    Route::get('/inscriptions/export',['uses'=>'InscriptionController@export','as'=>'admin.export']);
 
     Route::get('/users',['uses'=>'UserController@index','as'=>'admin.users']);
 
