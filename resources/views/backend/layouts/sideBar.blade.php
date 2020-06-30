@@ -66,6 +66,20 @@
             <p>Inscriptions</p>
           </a>
         </li>
+
+        <li class="active">
+          <a href="{{route('admin.users')}}">
+            
+            <p>Administrator</p>
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="{{route('admin.role')}}">
+            
+            <p>Roles & Permission</p>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

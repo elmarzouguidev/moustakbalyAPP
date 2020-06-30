@@ -12,4 +12,9 @@ class Inscription extends Model
     {
         return $query->where('age');
     }
+
+  /*  public function getcartCNIAttribute()
+    {
+
+    }*/
 }

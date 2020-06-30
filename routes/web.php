@@ -14,23 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //  return view('welcome');
-
-    $result = QueryBuilder::for(Inscription::class)
-        ->allowedFilters(
-            [
-                'nomComplet',
-                'email',
-                AllowedFilter::scope('Aged'),
-                AllowedFilter::exact('id')
-            ]
-        )
-        ->allowedSorts(['nomComplet'])
-        ->get();
-    return $result;
-});
-
 Auth::routes();
 
 Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
@@ -38,6 +21,15 @@ Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
     Route::get('/',['uses'=>'DashController@index','as'=>'admin.dash']);
 
     Route::get('/inscriptions',['uses'=>'InscriptionController@index','as'=>'admin.inscriptions']);
+
+    Route::get('/users',['uses'=>'UserController@index','as'=>'admin.users']);
+
+    Route::get('/users/add',['uses'=>'UserController@add','as'=>'admin.users.add']);
+    Route::post('/users/add',['uses'=>'UserController@store','as'=>'admin.users.add']);
+
+
+    Route::get('/roles',['uses'=>'RoleController@index','as'=>'admin.role']);
+    Route::post('/roles',['uses'=>'RoleController@store','as'=>'admin.role']);
 });
 
 
