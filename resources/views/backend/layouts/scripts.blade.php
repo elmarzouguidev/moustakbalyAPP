@@ -316,3 +316,5 @@
 
     });
   </script>
+
+  @yield('myScript')

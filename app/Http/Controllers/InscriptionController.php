@@ -27,6 +27,7 @@ class InscriptionController extends Controller
                 ]
             )
             ->allowedSorts(['nomComplet'])
+            //->paginate(5);
             ->get();
 
         return view('backend.inscription.index', compact('customers'));
