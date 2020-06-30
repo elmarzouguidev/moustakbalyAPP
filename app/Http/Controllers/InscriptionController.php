@@ -37,6 +37,6 @@ class InscriptionController extends Controller
 
     public function export() 
     {
-        return Excel::download(new InscriptionExport, 'users.xlsx');
+        return Excel::download(new InscriptionExport, 'inscriptions.xlsx');
     }
 }
