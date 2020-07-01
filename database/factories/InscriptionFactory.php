@@ -5,6 +5,8 @@
 use App\Inscription;
 use Faker\Generator as Faker;
 
+use Illuminate\Support\Str;
+
 $factory->define(Inscription::class, function (Faker $faker) {
 
     return [
@@ -18,7 +20,9 @@ $factory->define(Inscription::class, function (Faker $faker) {
         'diplome'=>'oui',
         'cnss'=>'oui',
         'dateCnss'=>'2020-06-31',
-        'cartCNI'=>'cart.png'
+        'cartCNI'=>'cart.png',
+
+        'codePer'=>'MOUS-'.rand()
        
     ];
 });

@@ -8,13 +8,19 @@ class Inscription extends Model
 {
 
 
-    public function scopeAged($query)
-    {
-        return $query->where('age');
-    }
+  public function scopeAged($query)
+  {
+    return $query->where('age');
+  }
 
   /*  public function getcartCNIAttribute()
     {
 
     }*/
+
+
+  public function lastID()
+  {
+    return $this->id;
+  }
 }
