@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',['uses'=>'SiteController@index','as'=>'home']);
+
 Auth::routes();
 
 Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
@@ -24,9 +26,7 @@ Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
     Route::get('/inscriptions/export',['uses'=>'InscriptionController@export','as'=>'admin.export']);
 
     Route::get('/users',['uses'=>'UserController@index','as'=>'admin.users']);
-
-    Route::get('/users/add',['uses'=>'UserController@add','as'=>'admin.users.add']);
-    Route::post('/users/add',['uses'=>'UserController@store','as'=>'admin.users.add']);
+    Route::post('/users',['uses'=>'UserController@store','as'=>'admin.users.add']);
 
 
     Route::get('/roles',['uses'=>'RoleController@index','as'=>'admin.role']);

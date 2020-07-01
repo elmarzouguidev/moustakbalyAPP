@@ -24,7 +24,7 @@ class InscriptionController extends Controller
                     'ville',
                     'sexe',
                     // AllowedFilter::scope('Aged'),
-                    AllowedFilter::exact('dateNissance')
+                    //AllowedFilter::exact('dateNissance')
                 ]
             )
            // ->allowedSorts(['dateNissance'])
