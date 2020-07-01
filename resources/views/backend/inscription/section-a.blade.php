@@ -10,7 +10,7 @@
               <table class="table">
                 <thead class="text-primary">
                   <th class="text-center">
-                    #
+                   Code
                   </th>
                   <th>
                     Nom complet
@@ -53,7 +53,7 @@
                   @foreach($customers as $customer)
                     <tr>
                       <td class="text-center">
-                        {{$customer->id}}
+                        {{$customer->codePer}}
                       </td>
                       <td>
                         {{$customer->nomComplet}}

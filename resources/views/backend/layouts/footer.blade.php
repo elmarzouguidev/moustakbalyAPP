@@ -4,7 +4,7 @@
         <nav class="footer-nav">
           <ul>
             <li><a href="https://www.haymacseo.com/" target="_blank">HayMacseo</a></li>
-            <li><a href="https://www.creative-tim.com/blog" target="_blank">HayMacProduction</a></li>
+            <li><a href="https://www.haymacproduction.ma" target="_blank">HayMacProduction</a></li>
           
           </ul>
         </nav>

@@ -19,16 +19,15 @@ class InscriptionController extends Controller
         $customers = QueryBuilder::for(Inscription::class)
             ->allowedFilters(
                 [
-                    'nomComplet',
-                    'email',
+                    'dateNissance',
+                    'codePer',
                     'ville',
-                    'age',
                     'sexe',
                     // AllowedFilter::scope('Aged'),
-                    AllowedFilter::exact('age')
+                    AllowedFilter::exact('dateNissance')
                 ]
             )
-            ->allowedSorts(['nomComplet'])
+           // ->allowedSorts(['dateNissance'])
             //->paginate(5);
             ->get();
 

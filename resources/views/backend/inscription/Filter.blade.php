@@ -11,9 +11,15 @@
                     <div class="col-sm-10">
                       <div class="row">
                         <div class="col-md-3">
-                            <label class="col-sm-2 col-form-label">Nom Complet</label>
+                          <label class="col-sm-2 col-form-label">CODE</label>
+                        <div class="form-group">
+                        <input type="text" name="filter[codePer]" value="" class="form-control">
+                        </div>
+                      </div>
+                        <div class="col-md-3">
+                            <label class="col-sm-2 col-form-label">Date Nissance</label>
                           <div class="form-group">
-                          <input type="text" name="filter[nomComplet]" value="{{old('filter[nomComplet]')}}" class="form-control">
+                          <input type="text" name="filter[dateNissance]" value="" class="form-control">
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -22,18 +28,7 @@
                             <input type="text" name="filter[ville]" value="{{old('filter[ville]')}}" class="form-control">
                           </div>
                         </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-2 col-form-label">age</label>
-                          <div class="form-group">
-                            <input type="number" name="filter[age]" value="{{old('filter[age]')}}" class="form-control" >
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-2 col-form-label">Email</label>
-                          <div class="form-group">
-                            <input type="text" name="filter[email]" value="{{old('email')}}" class="form-control" >
-                          </div>
-                        </div>
+              
                         <div class="col-md-3">
                             <label class="col-sm-2 col-form-label">sexe</label>
                           <div class="form-group">
