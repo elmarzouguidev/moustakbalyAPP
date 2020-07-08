@@ -33,7 +33,7 @@
                         
                           <div class="form-group">
                             <select name="filter[sexe]" class="selectpicker">
-                    
+                              <option value="sexe">select sexe</option>
                               <option value="homme">Homme</option>
                               <option value="femme">Femme</option>
                             </select>

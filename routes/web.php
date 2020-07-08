@@ -31,6 +31,14 @@ Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
 
     Route::get('/roles',['uses'=>'RoleController@index','as'=>'admin.role']);
     Route::post('/roles',['uses'=>'RoleController@store','as'=>'admin.role']);
+
+    Route::get('/dataClear',['uses'=>'appController@dataClear','as'=>'admin.dataClear']);
+
+    Route::get('appcache', function () {
+
+        \Artisan::call('config:cache');
+	
+    });
 });
 
 
