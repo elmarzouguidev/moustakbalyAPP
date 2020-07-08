@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\sendPassword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Mail;
 class UserController extends Controller
 {
     //
@@ -28,6 +29,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+        Mail::to($request->email)->send(new sendPassword($request->only(['name','email','password'])));
         return back()->with('user', $user);
     }
 }

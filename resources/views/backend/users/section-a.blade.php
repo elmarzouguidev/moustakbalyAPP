@@ -91,7 +91,7 @@
                     <label class="col-md-3 col-form-label">Password</label>
                     <div class="col-md-9">
                       <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" id="password" class="form-control" >
                       </div>
                     </div>
                   </div>
