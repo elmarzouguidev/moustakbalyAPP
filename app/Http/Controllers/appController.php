@@ -7,6 +7,7 @@ use App\Exports\InscriptionExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
+
 class appController extends Controller
 {
     //
@@ -15,7 +16,7 @@ class appController extends Controller
     {
         Inscription::truncate();
 
-        return redirect()->back()->with('yes','Ok is Done');
+        return redirect()->back()->with('yes', 'Ok is Done');
     }
 
 
@@ -23,8 +24,28 @@ class appController extends Controller
      * Excel data export
      */
 
-    public function export() 
+
+    public function export()
     {
-        return Excel::download(new InscriptionExport, 'inscriptions.xlsx');
+        return Excel::download(new InscriptionExport, 'Inscriptions.xlsx');
+
+       /* return Excel::download(new InscriptionExport(), 'inscriptions.csv', \Maatwebsite\Excel\Excel::CSV, [
+            'Content-Type' => 'text/csv',
+        ]);*/
+        //return (new InscriptionExport)->download('inscriptions.csv', \Maatwebsite\Excel\Excel::CSV);
+
+        /*  return (new InscriptionExport)->download('inscriptions.csv', \Maatwebsite\Excel\Excel::CSV, [
+            'Content-Type' => 'text/csv',
+        ]);*/
+    }
+
+    /* public function export(Request $request)
+    {
+        return Excel::download(new InscriptionExport($request->createdAt), 'inscriptions.xlsx');
+    }*/
+
+    public function advanced()
+    {
+        return view('backend.advanced.index');
     }
 }

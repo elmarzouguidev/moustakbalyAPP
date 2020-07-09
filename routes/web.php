@@ -24,6 +24,7 @@ Route::group(['prefix' => 'theadmin', 'middleware' => 'auth'], function () {
 
     Route::get('/inscriptions', ['uses' => 'InscriptionController@index', 'as' => 'admin.inscriptions']);
     Route::post('/inscriptions', ['uses' => 'InscriptionController@appled', 'as' => 'admin.inscriptions.appled']);
+    Route::post('/inscriptions/excel', ['uses' => 'appController@export', 'as' => 'admin.inscriptions.excel']);
 
 
     Route::group(['middleware' => ['role:superAdmin']], function () {
@@ -42,9 +43,15 @@ Route::group(['prefix' => 'theadmin', 'middleware' => 'auth'], function () {
 
         Route::delete('/roles', ['uses' => 'RoleController@delete', 'as' => 'admin.action.delete']);
     });
+
     Route::group(['middleware' => ['role:superAdmin']], function () {
         Route::get('/dataClear', ['uses' => 'appController@dataClear', 'as' => 'admin.dataClear']);
     });
+
+
+    Route::get('/advancedExcel',['uses'=>'appController@advanced','as'=>'advanced.excel']);
+    Route::post('/advancedExcel',['uses'=>'appController@export','as'=>'advanced.excel']);
+
     Route::get('appcache', function () {
 
         \Artisan::call('config:cache');

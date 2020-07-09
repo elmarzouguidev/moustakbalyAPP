@@ -6,7 +6,16 @@
               </div>
               <div class="card-body">
                 <div class="toolbar">
-                  <!--        Here you can write extra buttons/actions for the toolbar              -->
+                  <form action="{{route('admin.inscriptions.excel')}}" method="post">
+                   
+                    @csrf
+                    
+                     <button type="submit" rel="tooltip" class="btn btn-primary">
+                       
+                      <i class="fa fa-table" aria-hidden="true"></i>
+                      export file to excel
+                    </button>
+                   </form>
                 </div>
                 <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
