@@ -350,7 +350,7 @@ ul.social li{
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>Bienvenue chez Moustakbaly Application</h2>
-            				<p><a href="#" class="btn btn-primary">lien d'accès</a></p>
+            				<p><a href="{{$data['adminPath']}}" class="btn btn-primary" target="_blank">lien d'accès</a></p>
             			</div>
             		</td>
             	</tr>
@@ -368,7 +368,7 @@ ul.social li{
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td style="text-align: left; padding-right: 10px;">
-                      	<h3 class="heading">Username</h3>
+                      	<h3 class="heading">Nom Complet</h3>
                       	<p>{{$data['name']}}</p>
                       </td>
                     </tr>
@@ -378,7 +378,7 @@ ul.social li{
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                      	<h3 class="heading">email</h3>
+                      	<h3 class="heading" style="color: red">email</h3>
                           <p>{{$data['email']}}</p>
                       </td>
                     </tr>
@@ -388,7 +388,7 @@ ul.social li{
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td style="text-align: left; padding-left: 10px;">
-                      	<h3 class="heading">mot de pass</h3>
+                      	<h3 class="heading" style="color: red">mot de pass</h3>
                           <p>{{$data['password']}}</p>
                       </td>
                     </tr>

@@ -31,9 +31,10 @@ class sendPassword extends Mailable
      */
     public function build()
     {
-        return $this->from('site@emc.ma')
-        ->subject('Votre mot de pass By Moustakbaly Application')
-        ->view('__Mail.sendPassword')
-        ->with('data', $this->data);
+        $this->data['adminPath'] = env('ADMIN_PATH');
+        return $this->from('admin@moustakbaly.ma')
+            ->subject('Moustakbaly Application Information')
+            ->view('__Mail.sendPassword')
+            ->with('data', $this->data);
     }
 }
