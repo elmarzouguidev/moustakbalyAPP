@@ -57,7 +57,7 @@
                             Cart CNI
                           </th>
                           <th class="text-right">
-                            Event
+                            Appel ?
                           </th>
                     </tr>
                   </thead>
