@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
-                <i class="fa fa-list" aria-hidden="true"></i>
+                <i class="fa fa-users" aria-hidden="true"></i>
               </div>
             </div>
             <div class="col-7 col-md-8">

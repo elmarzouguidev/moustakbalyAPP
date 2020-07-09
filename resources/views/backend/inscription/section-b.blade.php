@@ -48,7 +48,7 @@
                             Cart CNI
                           </th>
                           <th class="text-right">
-                            Actions
+                            Event
                           </th>
                     </tr>
                   </thead>
@@ -58,6 +58,9 @@
                     <tr>
                       <td class="text-center">
                         {{$customer->codePer}}
+                        <hr>
+                        <p style="color: red"> {{$customer->called ? 'deja appel':''}}</p>
+                       
                       </td>
                       <td>
                         {{$customer->nomComplet}}
@@ -94,11 +97,14 @@
                       </td>
               
                       <td class="text-right">
-                   
-                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                          <i class="fa fa-phone"></i>
-                        </button>
-                  
+                      <form action="{{route('admin.inscriptions.appled')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="cutomer" value="{{$customer->id}}">
+                          <button type="submit" rel="tooltip" class="btn btn-success btn-icon btn-sm "  {{$customer->called ?'disabled="disabled"':''}}>
+                            
+                             <i class='{{$customer->called ? 'fa fa-check' :'fa fa-phone'}}'></i>
+                          </button>
+                        </form>
                       </td>
                     </tr>
                   @endforeach

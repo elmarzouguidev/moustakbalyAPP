@@ -7,14 +7,17 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller
 {
     //
 
     public function index()
     {
-        $users = User::all();
-        return view('backend.users.index', compact('users'));
+        $users = User::with('roles')->get();
+        $roles = Role::select('name', 'id')->get();
+        return view('backend.users.index', compact('users', 'roles'));
     }
 
     public function store(Request $request)
@@ -29,7 +32,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-        Mail::to($request->email)->send(new sendPassword($request->only(['name','email','password'])));
+        $user->assignRole($request->role);
+        Mail::to($request->email)->send(new sendPassword($request->only(['name', 'email', 'password'])));
         return back()->with('user', $user);
     }
 }

@@ -33,7 +33,7 @@
 
     <div class="main-panel">
       <!-- Navbar -->
-      @include('backend.layouts.navBar')
+     
       <!-- End Navbar -->
       <div class="content">
  

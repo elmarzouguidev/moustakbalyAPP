@@ -18,6 +18,10 @@
                   <th>
                     email
                   </th>
+
+                  <th>
+                    roles
+                  </th>
             
                   <th class="text-right">
                     Actions
@@ -36,11 +40,16 @@
                         {{$user->email}}
                       </td>
                    
-              
+                      <td>
+                       
+                        @foreach($user->roles as $role)
+                          <p>{{$role->name}}</p>
+                        @endforeach
+                      </td>
                       <td class="text-right">
                    
-                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                          <i class="fa fa-phone"></i>
+                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
+                          <i class="fa fa-trash-o"></i>
                         </button>
                   
                       </td>
@@ -95,6 +104,16 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                  <div class="form-group col-md-3">
+                    <label for="role">Role</label>
+                    <select name="role" class="form-control" id="role">
+                      @foreach($roles as $role)
+                         <option value="{{$role->name}}">{{$role->name}}</option>
+                      @endforeach()
+                    </select>
+                  </div>
+                </div>
                   <div class="card-footer ">
                     <div class="row">
                       <label class="col-md-3"></label>

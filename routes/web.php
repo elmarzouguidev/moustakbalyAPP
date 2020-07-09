@@ -14,33 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',['uses'=>'SiteController@index','as'=>'home']);
+Route::get('/', ['uses' => 'SiteController@index', 'as' => 'home']);
 
 Auth::routes();
 
-Route::group(['prefix'=>'theadmin','middleware'=>'auth'],function(){
+Route::group(['prefix' => 'theadmin', 'middleware' => 'auth'], function () {
 
-    Route::get('/',['uses'=>'DashController@index','as'=>'admin.dash']);
+    Route::get('/', ['uses' => 'DashController@index', 'as' => 'admin.dash']);
 
-    Route::get('/inscriptions',['uses'=>'InscriptionController@index','as'=>'admin.inscriptions']);
-    Route::get('/inscriptions/export',['uses'=>'InscriptionController@export','as'=>'admin.export']);
-
-    Route::get('/users',['uses'=>'UserController@index','as'=>'admin.users']);
-    Route::post('/users',['uses'=>'UserController@store','as'=>'admin.users.add']);
+    Route::get('/inscriptions', ['uses' => 'InscriptionController@index', 'as' => 'admin.inscriptions']);
+    Route::post('/inscriptions', ['uses' => 'InscriptionController@appled', 'as' => 'admin.inscriptions.appled']);
 
 
-    Route::get('/roles',['uses'=>'RoleController@index','as'=>'admin.role']);
-    Route::post('/roles',['uses'=>'RoleController@store','as'=>'admin.role']);
+    Route::group(['middleware' => ['role:superAdmin']], function () {
 
-    Route::get('/dataClear',['uses'=>'appController@dataClear','as'=>'admin.dataClear']);
+        Route::get('/users', ['uses' => 'UserController@index', 'as' => 'admin.users']);
+        Route::post('/users', ['uses' => 'UserController@store', 'as' => 'admin.users.add']);
+    });
 
+
+    Route::group(['middleware' => ['role:superAdmin']], function () {
+
+        Route::get('/roles', ['uses' => 'RoleController@index', 'as' => 'admin.role']);
+        Route::post('/roles', ['uses' => 'RoleController@store', 'as' => 'admin.role']);
+
+        Route::post('/roles/permission', ['uses' => 'RoleController@storePermission', 'as' => 'admin.permission.store']);
+
+        Route::delete('/roles', ['uses' => 'RoleController@delete', 'as' => 'admin.action.delete']);
+    });
+    Route::group(['middleware' => ['role:superAdmin']], function () {
+        Route::get('/dataClear', ['uses' => 'appController@dataClear', 'as' => 'admin.dataClear']);
+    });
     Route::get('appcache', function () {
 
         \Artisan::call('config:cache');
-	
     });
 });
-
-
-
-

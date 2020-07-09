@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\InscriptionExport;
+
 use Illuminate\Http\Request;
 
 use App\Inscription;
-use Maatwebsite\Excel\Facades\Excel;
+
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
 
@@ -27,15 +27,20 @@ class InscriptionController extends Controller
                     //AllowedFilter::exact('dateNissance')
                 ]
             )
-           // ->allowedSorts(['dateNissance'])
+            // ->allowedSorts(['dateNissance'])
             //->paginate(5);
             ->get();
 
         return view('backend.inscription.index', compact('customers'));
     }
 
-    public function export() 
+    public function appled(Request $request)
     {
-        return Excel::download(new InscriptionExport, 'inscriptions.xlsx');
+        $customer = Inscription::findOrFail($request->cutomer);
+        if ($customer) {
+            $customer->called = true;
+            $customer->update();
+            return redirect()->back()->with('good','l\'action a ete fait');
+        }
     }
 }
